@@ -6,18 +6,20 @@ import { getTodoByID } from "../redux/modules/todos.js";
 
 const Detail = () => {
   const navigate = useNavigate();
-  const params = useParams();
-  const todos = useSelector((state) => state.todos.todos);
-  const itemData = todos.find((item) => {
-    return String(item.id) === String(params.id);
-  });
+  // const dispatch = useDispatch();
+  const { id } = useParams();
+  const todo = useSelector((state) => state.todos.todo);
+  // const todos = useSelector((state) => state.todos.todos);
+  // const itemData = todos.find((item) => {
+  //   return String(item.id) === String(params.id);
+  // });
 
   return (
     <StContainer>
       <StDialog>
         <div>
           <StDialogHeader>
-            <div>ID :{itemData.id}</div>
+            <div>ID :{todo.id}</div>
             <StButton
               borderColor="#ddd"
               onClick={() => {
@@ -27,8 +29,8 @@ const Detail = () => {
               이전으로
             </StButton>
           </StDialogHeader>
-          <StTitle>{itemData.title}</StTitle>
-          <StBody>{itemData.body}</StBody>
+          <StTitle>{todo.title}</StTitle>
+          <StBody>{todo.body}</StBody>
         </div>
       </StDialog>
     </StContainer>

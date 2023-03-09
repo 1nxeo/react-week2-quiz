@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, toggleStatusTodo } from "../../../redux/modules/todos.js";
+import {
+  deleteTodo,
+  getTodoByID,
+  toggleStatusTodo,
+} from "../../../redux/modules/todos.js";
 import { Link } from "react-router-dom";
 
 const List = () => {
@@ -24,7 +28,11 @@ const List = () => {
           if (!todo.isDone) {
             return (
               <StTodoContainer key={todo.id}>
-                <StLink to={`/${todo.id}`} key={todo.id}>
+                <StLink
+                  to={`/${todo.id}`}
+                  onClick={() => dispatch(getTodoByID(todo))}
+                  key={todo.id}
+                >
                   <div>상세보기</div>
                 </StLink>
                 <div>

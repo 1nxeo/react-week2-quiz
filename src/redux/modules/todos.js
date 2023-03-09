@@ -89,7 +89,7 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         todo: state.todos.find((todo) => {
-          return todo.id === action.payload;
+          return String(todo.id) === String(action.payload.id);
         }),
       };
     default:
