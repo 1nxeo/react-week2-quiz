@@ -9,7 +9,7 @@ const Detail = () => {
   const params = useParams();
   const todos = useSelector((state) => state.todos.todos);
   const itemData = todos.find((item) => {
-    return Number(item.id) === Number(params.id);
+    return String(item.id) === String(params.id);
   });
 
   return (

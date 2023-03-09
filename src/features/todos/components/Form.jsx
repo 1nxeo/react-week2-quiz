@@ -25,14 +25,14 @@ const Form = () => {
     if (todo.title.trim() === "" || todo.body.trim() === "") return;
 
     setTodo({
-      id: todos.length + 1,
+      id,
       title: todo.title,
       body: todo.body,
       isDone: false,
     });
     dispatch(addTodo(todo));
     setTodo({
-      id: 0,
+      id,
       title: "",
       body: "",
       isDone: false,
