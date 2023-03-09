@@ -9,7 +9,7 @@ const Form = () => {
   const id = nextId();
   const dispatch = useDispatch();
   const [todo, setTodo] = useState({
-    id: 0,
+    id: id,
     title: "",
     body: "",
     isDone: false,
@@ -25,14 +25,14 @@ const Form = () => {
     if (todo.title.trim() === "" || todo.body.trim() === "") return;
 
     setTodo({
-      id,
+      id: id,
       title: todo.title,
       body: todo.body,
       isDone: false,
     });
     dispatch(addTodo(todo));
     setTodo({
-      id,
+      id: id,
       title: "",
       body: "",
       isDone: false,
